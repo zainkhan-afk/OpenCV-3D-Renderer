@@ -11,9 +11,10 @@ class Draw:
 	def clear(self):
 		self.canvas = np.zeros((self.height, self.width, 3)).astype("uint8")
 
-	def draw(self, pts, obj):
-		# for pt in pts:
-		# 	cv2.circle(self.canvas, pt, 2, (0, 255, 0), -1)
+	def draw(self, pts, obj, draw_points = False):
+		if draw_points:
+			for pt in pts:
+				cv2.circle(self.canvas, pt, 2, (0, 255, 0), -1)
 
 		if obj.name == "CUBE":
 			for i in range(3):
@@ -33,6 +34,21 @@ class Draw:
 					cv2.line(self.canvas, pts[offset+j,:], pts[offset+j+1, :], (255, 0, 0), 1)
 					if i<360//obj.resolution-1:
 						cv2.line(self.canvas, pts[offset+j,:], pts[offset_next+j, :], (255, 0, 0), 1)
+				cv2.line(self.canvas, pts[offset+j+1,:], pts[offset+0, :], (255, 0, 0), 1)
+
+		if obj.name == "TORUS":
+			for i in range(360//obj.resolution):
+				offset = i*360//obj.resolution
+				offset_next = (i+1)*360//obj.resolution
+				for j in range(360//obj.resolution - 1):
+					cv2.line(self.canvas, pts[offset+j,:], pts[offset+j+1, :], (255, 0, 0), 1)
+
+					if i<360//obj.resolution-1:
+						cv2.line(self.canvas, pts[offset+j,:], pts[offset_next+j, :], (255, 0, 0), 1)
+
+					else:
+						cv2.line(self.canvas, pts[offset+j,:], pts[0+j, :], (255, 0, 0), 1)
+
 				cv2.line(self.canvas, pts[offset+j+1,:], pts[offset+0, :], (255, 0, 0), 1)
 
 

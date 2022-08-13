@@ -1,5 +1,6 @@
 from cube import Cube
 from sphere import Sphere
+from torus import Torus
 from scene import Scene
 from camera import Camera
 
@@ -8,17 +9,15 @@ scene_height = 700
 
 scene = Scene(width = scene_width, height = scene_height)
 
-cube1 = Cube(x = 3, y = 2, z = -2)
-# cube2 = Cube(x = -3, y = 3, z = -1)
-# cube3 = Cube(x = 0, y = 0, z = 1)
-sphere = Sphere(x = 0, y = 0, z = 0)
+cube = Cube(x = 3, y = 2, z = -2)
+sphere = Sphere(x = 0, y = 0, z = 3)
+torus = Torus(x = 0, y = 3, z = 0)
 camera = Camera(x = 0, y = 0, z = 20, cx = scene_width//2, cy = scene_height//2, fx = 1000, fy = 1000)
 
 scene.add_camera(camera)
-scene.add_object(cube1)
-# scene.add_object(cube2)
-# scene.add_object(cube3)
+scene.add_object(cube)
 scene.add_object(sphere)
+scene.add_object(torus)
 
 
 ang = 0

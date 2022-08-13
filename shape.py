@@ -22,9 +22,9 @@ class Shape:
 
 	def get_transformation_matrix(self):
 		R_x = np.array([
-			[1, 			0, 				0],
+			[1, 			     0,					  0],
 			[0, np.cos(self.x_rot), -np.sin(self.x_rot)],
-			[0, np.sin(self.x_rot), 	np.cos(self.x_rot)]
+			[0, np.sin(self.x_rot),  np.cos(self.x_rot)]
 							])
 		R_y = np.array([
 			[np.cos(self.y_rot),  0, 	np.sin(self.y_rot)],
@@ -34,7 +34,7 @@ class Shape:
 		R_z = np.array([
 			[np.cos(self.z_rot), -np.sin(self.z_rot), 0],
 			[np.sin(self.z_rot),  np.cos(self.z_rot), 0],
-			[0,   		 0, 				1]
+			[                 0,   		           0, 1]
 							])
 		R = R_x@R_y@R_z
 		T = np.array([
