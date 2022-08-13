@@ -4,6 +4,8 @@ from torus import Torus
 from scene import Scene
 from camera import Camera
 
+import numpy as np
+
 scene_width = 700
 scene_height = 700
 
@@ -11,7 +13,7 @@ scene = Scene(width = scene_width, height = scene_height)
 
 cube = Cube(x = 3, y = 2, z = -2)
 sphere = Sphere(x = 0, y = 0, z = 3)
-torus = Torus(x = 0, y = 3, z = 0)
+torus = Torus(x = -3, y = -2, z = 0)
 camera = Camera(x = 0, y = 0, z = 20, cx = scene_width//2, cy = scene_height//2, fx = 1000, fy = 1000)
 
 scene.add_camera(camera)
@@ -28,7 +30,7 @@ while True:
 	k = scene.render_scene()
 	camera.rotate(0, ang, 0)
 	# camera.translate(camera_x, camera_y, camera_z)
-	ang += 0.01
+	ang += 0.025
 	if k == ord("q"):
 		break
 
