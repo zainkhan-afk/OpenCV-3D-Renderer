@@ -1,4 +1,5 @@
 from cube import Cube
+from sphere import Sphere
 from scene import Scene
 from camera import Camera
 
@@ -8,14 +9,16 @@ scene_height = 700
 scene = Scene(width = scene_width, height = scene_height)
 
 cube1 = Cube(x = 3, y = 2, z = -2)
-cube2 = Cube(x = -3, y = 3, z = -1)
-cube3 = Cube(x = 0, y = 0, z = 1)
+# cube2 = Cube(x = -3, y = 3, z = -1)
+# cube3 = Cube(x = 0, y = 0, z = 1)
+sphere = Sphere(x = 0, y = 0, z = 0)
 camera = Camera(x = 0, y = 0, z = 20, cx = scene_width//2, cy = scene_height//2, fx = 1000, fy = 1000)
 
 scene.add_camera(camera)
 scene.add_object(cube1)
-scene.add_object(cube2)
-scene.add_object(cube3)
+# scene.add_object(cube2)
+# scene.add_object(cube3)
+scene.add_object(sphere)
 
 
 ang = 0
@@ -26,7 +29,7 @@ while True:
 	k = scene.render_scene()
 	camera.rotate(0, ang, 0)
 	# camera.translate(camera_x, camera_y, camera_z)
-	ang += 0.1
+	ang += 0.01
 	if k == ord("q"):
 		break
 

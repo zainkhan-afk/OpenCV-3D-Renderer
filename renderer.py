@@ -16,7 +16,7 @@ class Renderer(Draw):
 			transformed_pts = transformed_pts/transformed_pts[-1, :]
 			transformed_pts = transformed_pts[:2, :].T.astype("int")
 
-			self.draw(transformed_pts)
+			self.draw(transformed_pts, obj)
 
 		k = self.show()
 		return k
