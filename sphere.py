@@ -24,8 +24,3 @@ class Sphere(Shape):
 
 
 		self.shape_points_homogeneous = np.append(self.shape_points, np.ones((len(self.shape_points), 1)), axis=1)
-
-	def get_points(self):
-		M = self.get_transformation_matrix()
-		pts = M@self.shape_points_homogeneous.T
-		return pts

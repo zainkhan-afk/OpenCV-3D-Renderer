@@ -46,3 +46,8 @@ class Shape:
 		M = np.append(M, np.array([[0, 0, 0, 1]]), axis = 0)
 
 		return M
+
+	def get_points(self):
+		M = self.get_transformation_matrix()
+		pts = M@self.shape_points_homogeneous.T
+		return pts
