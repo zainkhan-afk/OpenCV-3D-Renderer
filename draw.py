@@ -51,7 +51,11 @@ class Draw:
 
 				cv2.line(self.canvas, pts[offset+j+1,:], pts[offset+0, :], ((0, 0, 0)), 1)
 
+		if obj.name == "3D File":
+			for i in range(len(pts)-1):
+				cv2.line(self.canvas, pts[i,:], pts[i+1, :], ((0, 0, 0)), 1)
+
 
 	def show(self):
 		cv2.imshow(self.window_name, self.canvas)
-		return cv2.waitKey(30)
+		return cv2.waitKey(1)
