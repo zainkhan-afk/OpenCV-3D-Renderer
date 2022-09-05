@@ -11,6 +11,9 @@ class Scene(Renderer):
 	def add_object(self, obj):
 		self.objects.append(obj)
 
+	def get_object_at(self, i):
+		return self.objects[i]
+
 	def render_scene(self):
 		k = self.render(self.camera, self.objects)
 		return k
