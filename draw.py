@@ -26,6 +26,11 @@ class Draw:
 					cv2.line(self.canvas, pts[i+1, :], pts[7, :], ((0, 0, 0)), 1)
 					cv2.line(self.canvas, pts[i+4+1, :], pts[4, :], ((0, 0, 0)), 1)
 
+		if obj.name == "RECTANGLE":
+			for i in range(3):
+				cv2.line(self.canvas, pts[i, :], pts[i+1, :], ((0, 0, 0)), 1)
+			cv2.line(self.canvas, pts[0, :], pts[-1, :], ((0, 0, 0)), 1)
+
 		if obj.name == "SPHERE":
 			for i in range(360//obj.resolution):
 				offset = i*360//obj.resolution
@@ -54,6 +59,12 @@ class Draw:
 		if obj.name == "3D File":
 			for i in range(len(pts)-1):
 				cv2.line(self.canvas, pts[i,:], pts[i+1, :], ((0, 0, 0)), 1)
+
+		if obj.name == "LINE":
+			cv2.line(self.canvas, pts[0,:], pts[1, :], ((0, 0, 0)), 2)
+
+		if obj.name == "SceneCursor":
+			pass
 
 
 	def show(self):

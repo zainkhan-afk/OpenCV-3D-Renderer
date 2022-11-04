@@ -10,17 +10,21 @@ class Shape:
 		self.y_rot = y_rot
 		self.z_rot = z_rot
 
+		self.calculate_transformation_matrix()
+
 	def rotate(self, x_rot, y_rot, z_rot):
 		self.x_rot = x_rot
 		self.y_rot = y_rot
 		self.z_rot = z_rot
+		self.calculate_transformation_matrix()
 
 	def translate(self, x, y, z):
 		self.x = x
 		self.y = y
 		self.z = z
+		self.calculate_transformation_matrix()
 
-	def get_transformation_matrix(self):
+	def calculate_transformation_matrix(self):
 		R_x = np.array([
 			[1, 			     0,					  0],
 			[0, np.cos(self.x_rot), -np.sin(self.x_rot)],
@@ -42,12 +46,15 @@ class Shape:
 			[self.y],
 			[self.z]
 			])
-		M = np.append(R, T, axis = 1)
-		M = np.append(M, np.array([[0, 0, 0, 1]]), axis = 0)
+		self.M = np.append(R, T, axis = 1)
+		self.M = np.append(self.M, np.array([[0, 0, 0, 1]]), axis = 0)
 
-		return M
+	def get_transformation_matrix(self):
+		return self.M
+
+	def set_transformation_matrix(self, M):
+		self.M = M
 
 	def get_points(self):
-		M = self.get_transformation_matrix()
-		pts = M@self.shape_points_homogeneous.T
+		pts = self.M@self.shape_points_homogeneous.T
 		return pts

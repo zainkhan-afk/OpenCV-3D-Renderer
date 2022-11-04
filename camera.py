@@ -9,7 +9,7 @@ class Camera:
 
 		self.x_rot = x_rot
 		self.y_rot = y_rot
-		self.z_rot = z_rot
+		self.z_rot = z_rot - np.pi/2
 
 		self.fx = fx
 		self.fy = fy
@@ -20,7 +20,7 @@ class Camera:
 	def rotate(self, x_rot, y_rot, z_rot):
 		self.x_rot = x_rot
 		self.y_rot = y_rot
-		self.z_rot = z_rot
+		self.z_rot = z_rot - np.pi/2
 
 	def translate(self, x, y, z):
 		self.x = x
