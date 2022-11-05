@@ -1,5 +1,5 @@
 from ..shapes.shape import Shape
-from utils import *
+from ..utils import *
 
 class Joint(Shape):
 	def __init__(self, x, y, z, axis, parent, child):

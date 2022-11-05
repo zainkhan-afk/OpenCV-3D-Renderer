@@ -1,5 +1,5 @@
 import numpy as np
-from utils import *
+from ..utils import *
 
 class Shape:
 	def __init__(self, x = 0, y = 0, z = 0, x_rot = 0, y_rot = 0, z_rot = 0):

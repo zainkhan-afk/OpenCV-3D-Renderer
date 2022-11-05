@@ -1,6 +1,6 @@
 from .shapes.line import Line
 import numpy as np
-from utils import *
+from .utils import *
 
 class Axis:
 	def __init__(self, size = 25, scaler = 1):
