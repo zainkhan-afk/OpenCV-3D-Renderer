@@ -1,4 +1,4 @@
-from cvrenderer.shapes.line import Line
+from .shapes.line import Line
 import numpy as np
 from utils import *
 

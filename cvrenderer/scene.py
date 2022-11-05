@@ -1,5 +1,5 @@
-from cvrenderer.renderer import Renderer
-from cvrenderer.axis import Axis
+from .renderer import Renderer
+from .axis import Axis
 
 class Scene(Renderer):
 	def __init__(self, width, height):
