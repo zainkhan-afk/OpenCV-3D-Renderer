@@ -1,4 +1,4 @@
-from cvrenderer.shapes.shape import Shape
+from ..shapes.shape import Shape
 import numpy as np
 
 class Torus(Shape):
