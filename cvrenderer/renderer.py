@@ -1,4 +1,4 @@
-from draw import Draw
+from cvrenderer.draw import Draw
 
 class Renderer(Draw):
 	def __init__(self, width, height):

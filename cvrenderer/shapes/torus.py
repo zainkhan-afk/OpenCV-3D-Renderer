@@ -1,16 +1,19 @@
-from shape import Shape
+from cvrenderer.shapes.shape import Shape
 import numpy as np
 
 class Torus(Shape):
 	def __init__(self, x = 0, y = 0, z = 0, 
 					   x_rot = 0, y_rot = 0, 
 					   z_rot = 0, radius1 = 1,
-					   radius2 = 0.5, resolution = 20):
+					   radius2 = 0.5, resolution = 20, color = (0, 0, 0), thickness = 1):
 		Shape.__init__(self, x, y, z, x_rot, y_rot, z_rot)
 		self.radius1 = radius1
 		self.radius2 = radius2
 		self.name = "TORUS"
 		self.resolution = resolution
+
+		self.color = color
+		self.thickness = thickness
 
 		self.shape_points = []
 

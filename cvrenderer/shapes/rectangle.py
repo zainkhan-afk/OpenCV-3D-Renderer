@@ -1,15 +1,17 @@
-from shape import Shape
+from cvrenderer.shapes.shape import Shape
 import numpy as np
 
 class Rectangle(Shape):
 	def __init__(self, x = 0, y = 0, z = 0, 
 					   w = 1, l = 1, x_rot = 0, 
-					   y_rot = 0, z_rot = 0):
+					   y_rot = 0, z_rot = 0, color = (0, 0, 0), thickness = 1):
 		Shape.__init__(self, x, y, z, x_rot, y_rot, z_rot)
 
 		self.w = w
 		self.l = l
 		self.name = "RECTANGLE"
+		self.color = color
+		self.thickness = thickness
 
 		self.shape_points = np.array([
 										[ -self.w/2, -self.l/2, 0],

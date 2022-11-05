@@ -1,9 +1,6 @@
-from cube import Cube
-from sphere import Sphere
-from torus import Torus
-from scene import Scene
-from read_obj import ReadObj
-from camera import Camera
+from cvrenderer.shapes.cube import Cube
+from cvrenderer.scene import Scene
+from cvrenderer.camera import Camera
 
 import numpy as np
 
@@ -15,8 +12,8 @@ num_cubes = 12
 scene = Scene(width = scene_width, height = scene_height)
 
 
-camera = Camera(x = 0, y = 0, z = 50,
-				x_rot = np.pi/5, y_rot = -np.pi/4, z_rot = 0, 
+camera = Camera(x = 5, y = 0, z = 50,
+				x_rot = np.pi/5, y_rot = np.pi/2, z_rot = 0, 
 				cx = scene_width//2, cy = scene_height//2, 
 				fx = 1000, fy = 1000)
 

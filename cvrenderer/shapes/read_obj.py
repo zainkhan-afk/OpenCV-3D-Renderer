@@ -1,15 +1,18 @@
-from shape import Shape
+from cvrenderer.shapes.shape import Shape
 import numpy as np
 
 class ReadObj(Shape):
 	def __init__(self, filename, x = 0, 
 					   y = 0, z = 0, x_rot = 0, 
-					   y_rot = 0, z_rot = 0, scale = 1):
+					   y_rot = 0, z_rot = 0, scale = 1, color = (0, 0, 0), thickness = 1):
 		Shape.__init__(self, x, y, z, x_rot, y_rot, z_rot)
 
 		self.scale = scale
 		self.name = "3D File"
 		self.filename = filename
+
+		self.color = color
+		self.thickness = thickness
 
 		f = open(self.filename, "r")
 		all_dala = f.readlines()
