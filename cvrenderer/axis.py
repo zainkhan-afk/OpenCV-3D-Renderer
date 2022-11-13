@@ -23,3 +23,26 @@ class Axis:
 			self.lines.append(l)
 			l = Line(x = i*self.scaler, x_rot = np.pi/2, length = self.size*self.scaler, color = (0, 0, 0))
 			self.lines.append(l)
+
+	def translate_axis(self, delta_x = 0, delta_y = 0):
+		if delta_x != 0:
+			for i in range(1, len(self.lines), 2):
+				l = self.lines[i]
+				l.translate(x = l.x+delta_x, y = 0, z = 0)
+
+				if l.x>self.size//2*self.scaler:
+					l.translate(x=(-self.size//2+1)*self.scaler, y = 0, z = 0)
+
+				if l.x<(-self.size//2+1)*self.scaler:
+					l.translate(x=self.size//2*self.scaler, y = 0, z = 0)
+
+		if delta_y != 0:
+			for i in range(0, len(self.lines), 2):
+				l = self.lines[i]
+				l.translate(y = l.y+delta_y, x = 0, z = 0)
+
+				if l.y>self.size//2*self.scaler:
+					l.translate(y=(-self.size//2+1)*self.scaler, x = 0, z = 0)
+
+				if l.y<(-self.size//2+1)*self.scaler:
+					l.translate(y=self.size//2*self.scaler, x = 0, z = 0)

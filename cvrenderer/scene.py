@@ -25,6 +25,9 @@ class Scene(Renderer):
 		self.axis = Axis(size, scaler)
 		self.objects = self.axis.lines + self.objects
 
+	def move_axis(self, delta_x = 0, delta_y = 0):
+		self.axis.translate_axis(delta_x, delta_y)
+
 	def add_stick_figure(self, stick_figures):
 		self.stick_figures.append(stick_figures)
 		for figure in self.stick_figures:

@@ -29,6 +29,7 @@ scene.add_camera(camera)
 
 ang = 0
 while True:
+	scene.move_axis(delta_x = 0.01, delta_y = -0.01)
 	sphere.rotate(ang, ang, 0)
 	cube.rotate(ang, ang/10, ang/5)
 	cube.translate(0, 0, np.sin(ang))
