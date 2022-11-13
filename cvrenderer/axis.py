@@ -12,11 +12,9 @@ class Axis:
 
 		x = Line(y_rot = np.pi/2, length = self.size*self.scaler, color = (0, 0, 255))
 		y = Line(x_rot = np.pi/2, length = self.size*self.scaler, color = (0, 255, 0))
-		z = Line(length = self.size, color = (255, 0, 0))
 
 		self.lines.append(x)
 		self.lines.append(y)
-		# self.lines.append(z)
 
 		for i in range(-self.size//2+1, self.size//2+1):
 			if i == 0:
@@ -25,5 +23,3 @@ class Axis:
 			self.lines.append(l)
 			l = Line(x = i*self.scaler, x_rot = np.pi/2, length = self.size*self.scaler, color = (0, 0, 0))
 			self.lines.append(l)
-			# l = Line(z = i, y_rot = np.pi/2, length = self.size, color = (0, 0, 0))
-			# self.lines.append(l)

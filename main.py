@@ -15,7 +15,7 @@ scene = Scene(width = scene_width, height = scene_height)
 
 
 camera = Camera(x = 0, y = 0, z = 20,
-				x_rot = 0, y_rot = 0, z_rot = 0, 
+				x_rot = np.pi/6, z_rot = 4*np.pi/3,
 				cx = scene_width//2, cy = scene_height//2, 
 				fx = 1000, fy = 1000)
 cube = Cube()
@@ -23,6 +23,7 @@ sphere = Sphere(y = 2)
 
 scene.add_object(cube)
 scene.add_object(sphere)
+scene.add_axis(scaler=1)
 
 scene.add_camera(camera)
 
