@@ -1,8 +1,8 @@
 from .draw import Draw
 
 class Renderer(Draw):
-	def __init__(self, width, height):
-		Draw.__init__(self, width, height)
+	def __init__(self, width, height, save_as_video = False):
+		Draw.__init__(self, width, height, save_as_video)
 
 	def render(self, camera, objects):
 		self.clear()

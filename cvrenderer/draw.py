@@ -2,11 +2,16 @@ import cv2
 import numpy as np
 
 class Draw:
-	def __init__(self, width, height, window_name = "Canvas"):
+	def __init__(self, width, height, save_as_video = False, window_name = "Canvas"):
 		self.width = width
 		self.height = height
 		self.canvas = 255*np.ones((height, width, 3)).astype("uint8")
 		self.window_name = window_name
+		self.save_as_video = save_as_video
+
+		if self.save_as_video:
+			self.video_writer = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc(*"MJPG"), 30.0, (self.width, self.height))
+
 
 	def clear(self):
 		self.canvas = 255*np.ones((self.height, self.width, 3)).astype("uint8")
@@ -69,4 +74,12 @@ class Draw:
 
 	def show(self):
 		cv2.imshow(self.window_name, self.canvas)
+		if self.save_as_video:
+			self.video_writer.write(self.canvas)
 		return cv2.waitKey(1)
+
+	def destroy_scene(self):
+		if self.save_as_video:
+			self.video_writer.release()
+
+		cv2.destroyAllWindows()

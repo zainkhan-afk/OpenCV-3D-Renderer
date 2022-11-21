@@ -2,11 +2,12 @@ from .renderer import Renderer
 from .axis import Axis
 
 class Scene(Renderer):
-	def __init__(self, width, height):
-		Renderer.__init__(self, width, height)
+	def __init__(self, width, height, save_as_video = False):
+		Renderer.__init__(self, width, height, save_as_video)
 		self.objects = []
 		self.axis = None
 		self.stick_figures = []
+		self.save_as_video = save_as_video
 
 	def add_camera(self, camera):
 		self.camera = camera
