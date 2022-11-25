@@ -13,10 +13,10 @@ scene_height = 700
 scene = Scene(width = scene_width, height = scene_height, save_as_video = False)
 
 
-camera = Camera(x = 10, y = 10, z = 20,
+camera = Camera(x = 0, y = 0, z = 20,
 				cx = scene_width//2, cy = scene_height//2, 
 				width = scene_width, height = scene_height,
-				x_rot = 0, z_rot = 0,
+				x_rot = np.pi/6, z_rot = 4*np.pi/3,
 				fov_x = 60, fov_y = 60)
 cube = Cube(x = 3)
 sphere = Sphere(y = 3)
