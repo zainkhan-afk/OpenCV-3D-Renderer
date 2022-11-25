@@ -2,7 +2,7 @@ import numpy as np
 
 
 class Camera:
-	def __init__(self, x, y, z, cx, cy, fx = 100, fy = 100, x_rot = 0, y_rot = 0, z_rot = 0):
+	def __init__(self, x, y, z, cx, cy, width, height, fov_x = 100, fov_y = 100, x_rot = 0, y_rot = 0, z_rot = 0):
 		self.x = x
 		self.y = y
 		self.z = z
@@ -11,8 +11,11 @@ class Camera:
 		self.y_rot = y_rot
 		self.z_rot = z_rot - np.pi/2
 
-		self.fx = fx
-		self.fy = fy
+		self.fov_x = fov_x/180*np.pi
+		self.fov_y = fov_y/180*np.pi
+
+		self.fx = width/np.tan(self.fov_x/2)
+		self.fy = height/np.tan(self.fov_y/2)
 
 		self.cx = cx
 		self.cy = cy
