@@ -10,7 +10,11 @@ scene_height = 700
 scene = Scene(width = scene_width, height = scene_height)
 
 ant = ReadObj("ANT_BLK.OBJ", x_rot=-np.pi/2,scale = 5)
-camera = Camera(x = 0, y = 0, z = 20, cx = scene_width//2, cy = scene_height//2, fx = 1000, fy = 1000)
+camera = Camera(x = 0, y = 0, z = 20,
+				cx = scene_width//2, cy = scene_height//2, 
+				width = scene_width, height = scene_height,
+				x_rot = 0, z_rot = 0,
+				fov_x = 60, fov_y = 60)
 
 scene.add_camera(camera)
 scene.add_object(ant)

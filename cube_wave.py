@@ -14,8 +14,9 @@ scene = Scene(width = scene_width, height = scene_height)
 
 camera = Camera(x = 5, y = 0, z = 50,
 				x_rot = np.pi/5, y_rot = np.pi/2, z_rot = 0, 
+				width = scene_width, height = scene_height,
 				cx = scene_width//2, cy = scene_height//2, 
-				fx = 1000, fy = 1000)
+				fov_x = 60, fov_y = 60)
 
 cube_dict = {}
 
